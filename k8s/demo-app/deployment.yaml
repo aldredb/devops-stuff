@@ -41,8 +41,8 @@ spec:
 
       affinity:
         podAntiAffinity:
-
-
+          # Pods with label app=demo-app will not be scheduled 
+          # on node with same failure-domain.beta.kubernetes.io/zone label value
           requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
                 matchExpressions:

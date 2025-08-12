@@ -24,4 +24,4 @@ spec:
                 port:
                   name: http # should match port name in service
             path: /
-            pathType: ImplementationSpecific
+            pathType: Prefix
