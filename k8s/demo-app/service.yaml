@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-app
+  namespace: default
+spec:
+  selector:
+    app: demo-app
+  ports:
+    - protocol: TCP
+      name: http
+      port: 8080
+      targetPort: 18080 # should match containerPort in deployment
+  type: ClusterIP
+---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: app1
+#   namespace: tutorial
+#   annotations:
+#     # A bunch of AWS NLB specific settings
+#     service.beta.kubernetes.io/aws-load-balancer-backend-protocol: tcp
+#     service.beta.kubernetes.io/aws-load-balancer-type: external
+#     service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
+#     service.beta.kubernetes.io/aws-load-balancer-attributes: load_balancing.cross_zone.enabled=true
+#     service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
+#     # REPLACE THIS - Specify two public subnets in the VPC
+#     service.beta.kubernetes.io/aws-load-balancer-subnets: subnet-0e6517e100dce519e, subnet-0b3da6b47b8cbfaae
+#     # REPLACE THIS - Specify tags (else the load balancers will be reaped by the reaper script)
+#     service.beta.kubernetes.io/aws-load-balancer-additional-resource-tags: owner=aldred.halim,OwnerContact=aldred.halim@mongodb.com,no-reap=true,purpose=other,expire-on=2030-12-31  
+#     # Creates an entry in Route 53
+#     external-dns.alpha.kubernetes.io/hostname: demo-app1-ald.mongosa.net
+# spec:
+#   selector:
+#     app: app1
+#   ports:
+#     - protocol: TCP
+#       port: 80
+#       targetPort: 3000 # should match containerPort in deployment
+#   type: LoadBalancer
