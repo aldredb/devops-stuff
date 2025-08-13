@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/api', methods=['GET'])
 def get_data():
-    return jsonify({'version': '0'})
+    return jsonify({'version': '1'})
 
 @app.route('/api', methods=['POST'])
 def post_data():
