@@ -2,10 +2,8 @@ name: Pipeline
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 jobs:
-  test-build-push:
+  push-main-pipeline:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
