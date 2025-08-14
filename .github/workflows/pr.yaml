@@ -2,6 +2,9 @@ name: Pipeline
 on:
   pull_request:
     branches: [ main ]
+    paths-ignore:
+      - '.github/**'
+      - README.md
 jobs:
   pr-pipeline:
     runs-on: ubuntu-24.04
