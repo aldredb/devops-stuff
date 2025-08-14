@@ -10,7 +10,7 @@ def client():
 def test_get_data(client):
     response = client.get('/api')
     assert response.status_code == 200
-    assert response.json == {'version': '2'}
+    assert response.json == {'version': '2.1'}
 
 def test_post_data(client):
     test_data = {'key': 'value'}
