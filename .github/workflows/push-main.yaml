@@ -79,7 +79,7 @@ jobs:
           git clone https://github.com/aldredb/devops-stuff-k8s.git devops-stuff-k8s
           cd devops-stuff-k8s
 
-          yq eval -i '.spec.template.spec.containers[0].image = "ghcr.io/${{ github.repository }}:${{ github.sha }}"' demo-app/rollout.yaml
+          yq eval -i '.spec.template.spec.containers[0].image = "ghcr.io/${{ github.repository }}:${{ env.TAG_NAME }}"' demo-app/rollout.yaml
           
           # Commit changes
           git config --global user.name "GitHub Actions"
