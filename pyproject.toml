@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "bandit>=1.8.6",
     "flask>=3.1.1",
     "gunicorn>=23.0.0",
 ]
